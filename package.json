@@ -1,0 +1,40 @@
+{
+  "name": "post-api-automation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "single-test-file": "env NODE_ENV=dev FILE_NAME=NotificationsTests/mark_notif_as_viewed_test mocha test/single_test_runner.js --timeout 6000",
+    "test-dev": "env NODE_ENV=dev mocha test/tests_runner.js --timeout 6000",
+    "test-stage": "env NODE_ENV=stage mocha test/tests_runner.js --timeout 6000",
+    "test-report-testrail-dev": "sh upload-testrail-dev.sh",
+    "test-report-testrail-stage": "sh upload-testrail-stage.sh",
+    "test-report-mochawesome-dev": "env NODE_ENV=dev mocha test/tests_runner.js --timeout 6000 --reporter mochawesome --reporter-options reportDir=reportDev,reportFilename=[datetime]_[status],timestamp='mmmm dd yyyy h/MM/ss TT'",
+    "test-report-mochawesome-stage": "env NODE_ENV=stage mocha test/tests_runner.js --timeout 6000 --reporter mochawesome --reporter-options reportDir=reportStage,reportFilename=[datetime]_[status],timestamp='mmmm dd yyyy h/MM/ss TT'"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.19.3",
+    "@babel/core": "^7.19.3",
+    "@babel/node": "^7.19.1",
+    "@babel/preset-env": "^7.19.4",
+    "@babel/register": "^7.18.9",
+    "@faker-js/faker": "^7.6.0",
+    "axios": "^1.2.0",
+    "chai": "^4.3.6",
+    "chai-subset": "^1.6.0",
+    "fs": "^0.0.1-security",
+    "mocha": "^10.1.0",
+    "mochawesome": "^7.1.3",
+    "soft-assert": "^0.2.6",
+    "supertest": "^6.3.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "get-file-object-from-local-path": "^1.0.2",
+    "mocha-junit-reporter": "^2.2.0",
+    "path": "^0.12.7"
+  }
+}
